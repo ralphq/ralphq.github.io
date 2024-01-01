@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Phantom by HTML5 UP</title>
+		<title>RQ Portfolio&mdash; School Projects</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -25,12 +25,52 @@
 
 				<!-- Main -->
 					<div id="main">
-						<div class="inner">
-							<h1>Generic Page</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+						<div class="inner" style="display: flex; flex-direction: column; justify-content: center;">
+							<h1>School Projects</h1>
+							<h2>Aerospace Engineering at Penn State</h2>
+							<p>This page is a collection of some of my favorite projects in undergrad.
+								I've included a description the project, the class it was for, and images/videos
+								where appropriate for each.
+							</p>
+							<h3>AERSP 424, Advanced Computer Programming in C++</h3>
+							<p>For our final project, my group and I created a gimbal-mounted “sentry tower” 
+								that would track a target based on color recognition. We got experience implementing 
+								our C++ code with third party software (namely OpenCV) and interfacing said 
+								software with custom hardware. Shown below is our gimbal mounted camera completing a 
+								full field of view sweep to initially detect the target.</p>
+							<div class="video-container" style="align-self: center; margin-bottom: 64px;">
+								<iframe src="https://www.youtube.com/embed/YBcoGsQhYdc?si=lHFTxBs8R4buCyCj" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<h3>AERSP 304, System Dynamics & Controls <a href="website_media/Final-Report.pdf" style="color: #77C3EC;">(Final Report)</a></h3>
+							<p>Integrating the dynamics modelling skills we’d acquired in the first half of this 
+								course with the closed-loop control system design skills we’d acquired in the second 
+								(in this case the root locus method), this project asked us to simulate and ultimately 
+								improve the performance of a quadrotor drone attempting to follow a given trajectory. 
+								Shown below on the left is a root locus plot showing how the addition of a lag 
+								compensator affects the system by pole placement, and on the right is the corresponding 
+								step response.</p>
+								<img src="website_media/Root-Locus-With-Compensator.jpg" width="75%" height="auto" style="align-self: center; margin-bottom: 64px;">
+							<h3>AERSP 304, System Dynamics & Controls <a href="website_media/304_Project__1_Report.pdf" style="color: #77C3EC;">(Report 1)</a></h3>
+							<p>This project tasked us with modelling the relative motion of celestial bodies, 
+								specifically the “circular restricted three body problem.” It heavily involved our 
+								knowledge of rotational body kinematics, orbital mechanics, and differential equation 
+								approximation techniques. Shown below are orbit trajectories of a satellite about the “Earth-Moon 
+								L2 & L4 Points.” These are two of the 5 points in space in which the gravitational forces of 
+								the Earth & Moon are equal, and thus a spacecraft will stay at rest (a.k.a Lagrange points). 
+								As shown below, orbits about L2 are unstable, meaning that they break down in the face of 
+								disturbances and produce unpredictable behavior. Orbits about L4 are semi-stable, meaning that
+								while they do not return to the original orbit exactly they do produce more predictable post-disturbance 
+								behavior.</p>
+								<img src="website_media/orbits.jpeg" width="75%" height="auto" style="align-self: center; margin-bottom: 64px;">
+							<h3>AERSP 313, Aerospace Analysis <a href="website_media/Team-30-Computer-Project-1-Final-Report.pdf" style="color: #77C3EC;">(Report 1)</a></h3>
+							<p>This project tasked us with the approximation and modeling of quadrotor drone dynamics, both 
+								analytically and numerically. Being one of my first projects in aerospace, it was an awesome 
+								introduction to how the calculus and linear algebra skills we’d acquired in our freshman and sophomore 
+								years would be used going forward. The assigned analytical method was the Laplace transform, which 
+								although I didn’t know it yet would soon become essential to my favorite area of aerospace: control 
+								systems. The assigned numerical method was the Runge-Kutta method, which is an effective state-space 
+								representation based approximation technique for higher order differential equation systems. This method 
+								is used very commonly in industry, a well-known example being the ode45 function approximator in MATLAB.</p>
 						</div>
 					</div>
 
