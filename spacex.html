@@ -25,12 +25,28 @@
 
 				<!-- Main -->
 					<div id="main">
-						<div class="inner">
-							<h1>Generic Page</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+						<div class="inner" style="display: flex; flex-direction: column; justify-content: center;">
+							<h1>GNC Engineering Intern (Starshield)</h1>
+							<h2><a href="https://www.spacex.com/starshield">SpaceX</a></h2>
+							<p>My final college internship was at SpaceX in Hawthorne, CA. More specifically, I 
+								worked as a guidance, navigation, and control (GNC) engineer in the Starshield division, which uses Starlink technologies
+								for national security purposes. </p>
+							<p>I had two main projects during this internship, both of which were focused on improving
+								the survivability of Starshield satellites. The first involved fault tolerance testing of
+								almost all the vehicle's GNC subsystems, including both actuators (i.e. reaction wheels and magnetorquers) 
+								and sensors (i.e. star trackers and inertial measurement units (IMUs)).
+								The main results of this testing were the identification of orientations in which the satellite's
+								magnetorquer-based angular momentum desaturation system is underactuated and orbital trajectories in 
+								which star trackers had severely reduced visibility. These results were primarily generated using 6 degree of 
+								freedom C++ simulations.
+							</p>
+							<p>The second involved the analysis of the reaction wheel subsystem's torque envelopes (example shown below) in 
+								order to determine state transition thresholds necessary for the vehicle's survival. Once these envelopes were 
+								calculated and visualized in MATLAB, new C++ flight software was written, unit-tested, and deployed. A screenshot
+								of Starlink reaction wheels and an example torque envelope from the American Institute
+								of Aeronautics and Astronautics (AIAA) are shown below.
+							</p>
+							<img src="website_media/spacex_screenshot.jpeg" width="75%" height="auto" style="align-self: center; margin-bottom: 64px;">
 						</div>
 					</div>
 
