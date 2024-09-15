@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>RQ Portfolio&mdash; Boids Algorithm</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner" style="display: flex; flex-direction: column; justify-content: center;">
+							<h1>Boids Algorithm <a href="https://github.com/ralphq/boids" class="icon brands style3 fa-github"><span class="label">Github</span></a></h1>
+							<h2>Simulation of Bird Flocking Behavior</h2>
+							<h3>Background</h3>
+							<p>Boids Algorithm (a.k.a Reynolds Flocking) is an artificial life program 
+								created to simulate the flocking behavior of birds. Originally published in a 1986 computer
+								graphics conference, Boids has historically been used for realistic "looking" behavior
+								in animation and video game development. However, this algorithm is a classic example
+								of agent-based modelling, which underpins many modern autonomy engineering techniques
+								(dynamical systems modelling, reinforcement learning, swarm robotics, etc). Agent-based modelling techniques 
+								are based on the idea of emergent behavior, which is defined as "when a complex 
+								entity has properties or behaviors that its parts do not have on their own, and 
+								emerge only when they interact in a wider whole." Given how epitomic an example of this concept 
+								Boids is, I thought it'd be interesting to implement it myself.
+							<h3>Implementation</h3>
+							<p>
+								Boids algorithm has three simple rules:
+							</p>
+								<img src="website_media/boids_screenshot.png" style="padding-bottom: 32px; max-width: 66%; align-self: center;"/>
+							<p>
+								The simulation is initialized with a user-specified number of agents in random positions and headings.
+								At each time step, a loop applies each of these rules to each agent, setting a weighted sum of the headings (called
+								target vectors in the code) returned by each rule as the new heading. Once a new heading has been calculated for each
+								agent, the simulation takes one time step forward with agents flying in their new heading at a predetermined,
+								constant speed. This process repeats over the length of the simulation, which is rendered in a pygame window.
+							</p>	
+							<video width=75% height=auto style="align-self: center; margin-bottom: 64px;" controls>
+								<source src="website_media/boids.mp4"  type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+							<h3>Takeaways</h3>
+							<ul>
+								<li><em>Loop structure is important and requires some foresight.</em> This project's git history shows some inefficient nesting, redundant calculations,
+									and worst of all loops that shouldn't exist at all. Refining/removing these over time was a great exercise, but thinking about them more ahead
+									of time would've definitely saved some.
+								</li>
+								<li><em>Don't underestimate the amount of necessary implementation decisions, even for a very simple algorithm.</em> 
+									Does "local" mean within some radius or k-nearest-neighbors?
+									Do I treat distance as a threshold (local/nonlocal) or continuous value?
+									How should I tune commands from rules against one another? Are there additional rules I should implement, like edge avoidance?
+									While these variations are still "boids algorithm," they can significantly impact how the system behaves.
+								</li>
+							</ul>
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
