@@ -28,13 +28,17 @@
 						<div class="inner" style="display: flex; flex-direction: column; justify-content: center;">
 							<h1>Boids Algorithm <a href="https://github.com/ralphq/boids" class="icon brands style3 fa-github"><span class="label">Github</span></a></h1>
 							<h2>Simulation of Bird Flocking Behavior</h2>
+							<video width=75% height=auto style="align-self: center; margin-bottom: 64px;" controls>
+								<source src="website_media/boids.mp4"  type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
 							<h3>Background</h3>
-							<p>Boids Algorithm (a.k.a Reynolds Flocking) is an artificial life program 
+							<p><a href="https://en.wikipedia.org/wiki/Boids">Boids Algorithm</a> (a.k.a Reynolds Flocking) is an artificial life program 
 								created to simulate the flocking behavior of birds. Originally published in a 1986 computer
 								graphics conference, Boids has historically been used for realistic "looking" behavior
 								in animation and video game development. However, this algorithm is a classic example
-								of agent-based modelling, which underpins many modern autonomy engineering techniques
-								(dynamical systems modelling, reinforcement learning, swarm robotics, etc). Agent-based modelling techniques 
+								of <a href="https://en.wikipedia.org/wiki/Agent-based_model">agent-based modelling</a>, which underpins many modern autonomy engineering techniques
+								(dynamical systems, reinforcement learning, swarm robotics, etc). Agent-based modelling techniques 
 								are based on the idea of emergent behavior, which is defined as "when a complex 
 								entity has properties or behaviors that its parts do not have on their own, and 
 								emerge only when they interact in a wider whole." Given how epitomic an example of this concept 
@@ -50,11 +54,7 @@
 								target vectors in the code) returned by each rule as the new heading. Once a new heading has been calculated for each
 								agent, the simulation takes one time step forward with agents flying in their new heading at a predetermined,
 								constant speed. This process repeats over the length of the simulation, which is rendered in a pygame window.
-							</p>	
-							<video width=75% height=auto style="align-self: center; margin-bottom: 64px;" controls>
-								<source src="website_media/boids.mp4"  type="video/mp4">
-								Your browser does not support the video tag.
-							</video>
+							</p>
 							<h3>Takeaways</h3>
 							<ul>
 								<li><em>Loop structure is important and requires some foresight.</em> This project's git history shows some inefficient nesting, redundant calculations,
