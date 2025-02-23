@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>RQ Portfolio&mdash; Pathfinding in Cpp-</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+
+
+
+						<div class="inner">
+
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+
+						<div class="inner" style="display: flex; flex-direction: column; justify-content: center;">
+							<button class="back-button" onclick="window.history.back();">
+								<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<line x1="19" y1="12" x2="5" y2="12"></line>
+									<polyline points="12 19 5 12 12 5"></polyline>
+								</svg>
+							</button>
+
+							<h1>Pathfinding in C++ <a href="https://github.com/ralphq/pathfinding-visualizer" class="icon brands style3 fa-github"><span class="label">Github</span></a></h1>
+							<h2>Implementation of Dijkstra's & A* with C++ STL</h2>
+							<span class="image-container" style="display: flex; justify-content: center; gap: 2.5%; margin-bottom: 28px;">
+								<img src="website_media/pathfinding.gif" alt="" height="50%" width="50%" loading="eager"/>
+								<img src="website_media/a_star.gif" alt="" height="50%" width="50%" loading="eager"/>
+							</span>
+							<h3>Background</h3>
+							<p>Dijkstra's Algorithm and A* are ubiquitous pathfinding algorithms for motion planning applications. Dijkstra's algorithm finds the shortest 
+								path from a source node to all other nodes in a weighted graph by exploring nodes in order of increasing cost, 
+								ensuring an optimal solution at the expense of search efficiency. A* operates similarly but incorporates an optimistic heuristic to priortize
+								the search of nodes closest to the destination node. For this project, I decided to implement both algorithms with the C++ standard template 
+								library (STL) and render the results in a pygame window.
+							<h3>Implementation</h3>
+							<p>The initialization and main loop of Dijkstra's and A* are shared. To initialize the graph being traversed (in motion planning
+							this is usually some kind of grid-structure), each node is given a cost of infinity to signify that it is yet to be 
+							visited (this is done using numeric_limits&lt;int&gt;::max in the code). From the starting position, the node with the smallest cost is selected
+							to be searched next. Furthermore, the cost of each node is stored in a min-priority queue (queue where the smallest element is always at the top), 
+							and the node from which this neighbor was searched is stored in an unordered map (this is used later for retracing our path). In the code, the
+							former is called pq and the later is called prev (because it stores the previous node for each neighbor, often called a predecessor). Note:
+							currently this is done with a vector of vectors in the code-- definitely want to switch this out later.
+							This process is repeated until the priority queue is empty, with three main caveats:</p>
+							<ol>
+								<li>If we encounter a wall (in our code, walls have a label of 1 since empty space has one of 0), move on. We
+									can't traverse a wall anyway. By skipping it, the cost will remain infinity and we won't waste time on it
+								again. </li>
+								<li>If we revisit a node at a later point, we check whether the new calculated cost is less than the old one. If 
+									so, we set the new (lesser) one as the node cost going forward and update the neighbor to the new one. <em>This is critically important for finding the optimal path.</em>
+								</li>
+								<li>
+									Lastly, if we find the destination node we break out of this loop immediately (despite the priority queue not being empty). At this point we
+									walk the path map in <em>reverse</em> "order". For example, if B is C's predecessor, and A is B's, we walk the map from C->B->A. By storing our search results in a min-priority
+									queue, we can be certain that the set of predecessor's we get at the end is the minimum possible cost. Note: if this never happens, the min-priority queue will empty
+									itself, and we'll have the min-cost predecessor for every node in the graph but unfortunately no path to the goal node. At that point we break out and 
+									say the goal node is inaccessible.
+								</li>
+							</ol>
+							<p>
+							The difference between Dijkstra's and A* is how this cost is calculated. Dijkstra's simply does breadth-first search from the starting node, picking the neighbor node with the minimum 
+							distance at each time step. A* uses both the distance from the starting node and a distance heuristic w.r.t end node. In my implementation, the heuristic used is a weighted optimistic 
+							(assuming no walls) Euclidean distance. The higher the weight, the more aggressively proximity to the end node is favored (exploitation over exploration). I weight it very aggressively 
+							to make the visualization more clear, but <em>this runs the risk of inadmissability, meaning suboptimal paths are possible.</em> You can see this in the code below.
+							</p>
+							<img src="website_media/heuristic_screenshot2.png" style="padding-bottom: 28px; max-width: 66%; align-self: center;"/>
+							<img src="website_media/heuristic_screenshot1.png" style="padding-bottom: 28px; max-width: 66%; align-self: center;"/>
+							<h3>
+								Takeaways
+							</h3>
+							<ul>
+								<li><em>Using C++ Standard Template Library (STL).</em> Aside from hammering down motion planning fundamentals, the main reason I took on this project was to get more experience 
+									with C++ STL, which it definitely accomplished. For the grid itself, storing costs, keeping track of whether we've visited a node, and storing predecessors I use a vector of vectors. 
+									For the minHeap I use the built in priority_queue class. Over time I want to continue using different classes (unordered_map for predecessors, arrays since grid size is fixed, etc) 
+									and compare performance.
+								</li>
+								<li><em>Dijkstra's and A* are much more similar than most people realize.</em> Going into this project I already knew the difference between the two algorithms, however without having
+									implemented them both from scratch I didn't realize <em>just</em> how similar they were. Once I realized that setting a heuristic to zero mimics Dijkstra's algorithm <em>exactly,</em>
+									it was rewarding to do both algorithms with the same function. In the future, it would be cool to pass a heuristic function rather than a boolean as the input param to pathfinding() 
+									to allow for multiple variants of A* (Manhattan Distance, Chebyshev Distance, etc).
+								</li>
+							</ul>
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
