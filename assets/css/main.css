@@ -2114,13 +2114,6 @@ input, select, textarea {
 			transition: transform 0.5s ease, opacity 0.5s ease;
 		}
 
-		li:hover {
-			opacity: 0.8; /* Adjust the opacity on hover */
-			transform: scale(1.1); /* Increase size by 10% on hover */
-			background-color: transparent; /* Ensure background stays transparent */
-			box-shadow: none; /* Ensure no box shadow appears */
-		}
-
 /* Form */
 
 	form {
