@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>RQ Portfolio&mdash; Particle Filter (GT)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner" style="display: flex; flex-direction: column; justify-content: center;">
+							<button class="back-button" onclick="window.history.back();">
+								<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<line x1="19" y1="12" x2="5" y2="12"></line>
+									<polyline points="12 19 5 12 12 5"></polyline>
+								</svg>
+							</button>
+							<h1>Particle Filter (Georgia Tech)</h1>
+							<h2>Satellite Localization in AI for Robotics course</h2>
+                                <span class="image-container" style="display: flex; justify-content: center; gap: 2.5%; margin-bottom: 28px;">
+                                    <img src="website_media/pf_gifa.gif" alt="" height="50%" width="33%" />
+                                    <img src="website_media/pf_gifb.gif" alt="" height="50%" width="33%" />
+                                    <img src="website_media/pf_gifc.gif" alt="" height="50%" width="33%" />
+                                </span>
+							<h3>Background</h3>
+							<p>In this project, I successfully implemented a particle filter to localize a 
+								satellite in an unknown position within a solar system. The challenge was to determine the satellite's 
+								position using only noisy gravitational acceleration measurements from surrounding planets. 
+								The satellite followed an approximately circular orbit around the sun, and I had 300 days 
+								(simulation time) and 15 seconds (CPU time) to accurately estimate its position before resources ran out.</p>
+							<h3>Implementation</h3>
+							<p><i>Note: To preserve the integrity of their assignments, the GT OMSCS program asks its students not to share their code
+								online. However, I am freely able to describe my approach.
+							</i></p>
+							<p>
+								Implementing a particle filter for the aforementioned purposes mainly included the following steps
+									<ul>
+										<li><i>Initialization:</i> A set of particles was distributed across a plausible search area within the solar system. In my case, this was uniformly about the solar system but with 
+										logical orientations for a counterclockwise orbit (we're told ahead of time that all orbits are in that direction).</li>
+										<li><i>Weighting:</i> Each particle’s weight was updated based on how closely its predicted reading matched the observed 
+											measurement. A Gaussian probability density function was used to determine the likelihood of each particle’s 
+											estimate, incorporating the measurement noise. Particles that produced predictions closer to the observed data were 
+											assigned higher weights, while those with large discrepancies had their weights reduced. This ensured that the most 
+											probable particles were reinforced during the resampling process, improving the accuracy of the filter over time.</li>
+										<li><i>Resampling:</i> A probabilistic resampling step was used to reinforce likely locations and eliminate unlikely ones.</li>
+										<li><i>Motion Model:</i> The particles were updated according to a bicycle motion model, approximating the satellite's circular orbit.</li>
+										<li><i>Fuzzing (Jittering):</i> A small percentage of particles were randomly perturbed to maintain diversity and prevent premature convergence.</li>
+										<li><i>Estimation:</i> The final location was determined by averaging the most probable particles.</li>
+									</ul>
+								</li>
+							</p>
+							<h3>Takeaways</h3>
+							<ul>
+								<li><i>The Power of Fuzzing:</i> Fuzzing techniques are effective in preventing sample impoverishment by maintaining particle diversity after resampling, 
+									ensuring the filter continues to represent uncertainty accurately. By introducing controlled random perturbations to resampled particles, 
+									roughening prevents the collapse of the particle set into overly concentrated clusters, allowing the filter to maintain coverage of potential locations. 
+									Determing the right amount to fuzz is essential to strike a balance—excessive roughening can blur the distribution and reduce accuracy, while 
+									insufficient roughening may lead to premature convergence and loss of viable hypotheses.
+								<li><i>Computational Trade-offs:</i> Increasing particle count improves accuracy but risks exceeding time constraints, requiring an optimized balance. Techniques
+								like varying the sigma of the resampling wheel's gaussian and fuzzing can help get the most "bang for your particle." Tuning these different parameters was a very
+								interesting process.</li>
+							</ul>
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
