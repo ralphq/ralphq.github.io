@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>RQ Portfolio&mdash; SLAM (GT)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+						</div>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner" style="display: flex; flex-direction: column; justify-content: center;">
+							<button class="back-button" onclick="window.history.back();">
+								<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<line x1="19" y1="12" x2="5" y2="12"></line>
+									<polyline points="12 19 5 12 12 5"></polyline>
+								</svg>
+							</button>
+							<h1>SLAM (Georgia Tech)</h1>
+							<h2>Drone Navigation and Mapping in AI for Robotics course</h2>
+                                <span class="image-container" style="display: flex; justify-content: center; gap: 2.5%; margin-bottom: 28px;">
+                                    <img src="website_media/slam2.gif" alt="" style="width: 45%; aspect-ratio: 1; object-fit: cover; object-position: center;" loading=eager/>
+                                    <img src="website_media/slam3.gif" alt="" style="width: 45%; aspect-ratio: 1; object-fit: cover; object-position: center;" loading=eager/>
+                                </span>
+							<h3>Background</h3>
+							<p>SLAM (Simultaneous Localization and Mapping) is a fundamental problem in robotics where an agent must simultaneously estimate its own position while mapping an unknown environment using sensor observations. This creates an interdependent estimation challenge where accurate localization requires a reliable map, while accurate mapping requires precise knowledge of the agent's position. In this project, I implemented a GraphSLAM system for autonomous drone navigation in an environment containing trees of unknown locations and sizes. In the above visualizations, the actual trajectory is plotted in red and the estimated trajectory in blue.</p>
+								
+							<p>The system addressed two primary objectives: first, to estimate the drone's trajectory and construct a map of tree locations using noisy sensor measurements, and second, to navigate to a specified target location while avoiding collisions with mapped obstacles. The drone's sensors provided distance, bearing, and size measurements of trees within a limited detection radius, with both measurement and movement commands subject to Gaussian noise. Trees would appear and disappear from the sensor's field of view as the drone moved through the environment, and the complete system required execution within a 10-second computational time constraint.</p>
+							
+							<h3>Takeaways</h3>
+							<p><i>Coordinate System Management:</i> Converting between polar sensor measurements and Cartesian world coordinates while maintaining consistency across timesteps proved challenging. Accumulated orientation error from noisy steering commands significantly impacted tree position estimation accuracy over time.</p>
+							
+							<p><i>Data Association Complexity:</i> The limited sensor horizon created a challenging data association problem—distinguishing between new trees and previously observed trees re-entering sensor range. This required balancing measurement uncertainty with geometric constraints to prevent duplicate map entries.</p>
+							
+							<p><i>Engineering Trade-offs:</i> Given the 10-second time constraint, simple heuristics often outperformed sophisticated algorithms, emphasizing the importance of computational efficiency in real-time robotics applications.</p>
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
