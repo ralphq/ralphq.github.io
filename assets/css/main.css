@@ -2664,6 +2664,9 @@ input, select, textarea {
 				.tiles article > .image img, .tiles article > .image video {
 					display: block;
 					width: 100%;
+				}
+
+				.tiles.square article > .image img, .tiles.square article > .image video {
 					aspect-ratio: 1;
 					object-fit: cover;
 				}
