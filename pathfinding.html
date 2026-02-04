@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="preload" href="gifs/pathfinding_project2.mp4" as="video" type="video/mp4">
+		<link rel="preload" href="gifs/a_star.mp4" as="video" type="video/mp4">
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -41,8 +43,8 @@
 							<h1>Pathfinding in C++ <a href="https://github.com/ralphq/pathfinding-visualizer" class="icon brands style3 fa-github"><span class="label">Github</span></a></h1>
 							<h2>Implementation of Dijkstra's & A* with C++ STL</h2>
 							<span class="image-container" style="display: flex; justify-content: center; gap: 2.5%; margin-bottom: 28px;">
-								<img src="website_media/pathfinding_project2.gif" alt="" height="50%" width="50%" loading="eager"/>
-								<img src="website_media/a_star.gif" alt="" height="50%" width="50%" loading="eager"/>
+								<video autoplay muted loop playsinline height="50%" width="50%"><source src="gifs/pathfinding_project2.mp4" type="video/mp4"></video>
+								<video autoplay muted loop playsinline height="50%" width="50%"><source src="gifs/a_star.mp4" type="video/mp4"></video>
 							</span>
 							<h3>Background</h3>
 							<p>Dijkstra's Algorithm and A* are ubiquitous pathfinding algorithms for motion planning applications. Dijkstra's algorithm finds the shortest 
@@ -80,8 +82,8 @@
 							(assuming no walls) Euclidean distance. The higher the weight, the more aggressively proximity to the end node is favored (exploitation over exploration). I weight it very aggressively 
 							to make the visualization more clear, but <em>this runs the risk of inadmissability, meaning suboptimal paths are possible.</em> You can see this in the code below.
 							</p>
-							<img src="website_media/heuristic_screenshot2.png" style="padding-bottom: 28px; max-width: 100%; align-self: center;"/>
-							<img src="website_media/heuristic_screenshot.png" style="padding-bottom: 28px; max-width: 100%; align-self: center;"/>
+							<img src="pics/heuristic_screenshot2.png" style="padding-bottom: 28px; max-width: 100%; align-self: center;"/>
+							<img src="pics/heuristic_screenshot.png" style="padding-bottom: 28px; max-width: 100%; align-self: center;"/>
 							<h3>
 								Takeaways
 							</h3>

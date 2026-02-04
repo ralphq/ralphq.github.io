@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="preload" href="gifs/slam2.mp4" as="video" type="video/mp4">
+		<link rel="preload" href="gifs/slam3.mp4" as="video" type="video/mp4">
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -34,8 +36,8 @@
 							<h1>SLAM (Georgia Tech)</h1>
 							<h2>Drone Navigation and Mapping in AI for Robotics course</h2>
                                 <span class="image-container" style="display: flex; justify-content: center; gap: 2.5%; margin-bottom: 28px;">
-                                    <img src="website_media/slam2.gif" alt="" style="width: 45%; aspect-ratio: 1; object-fit: cover; object-position: center;" loading=eager/>
-                                    <img src="website_media/slam3.gif" alt="" style="width: 45%; aspect-ratio: 1; object-fit: cover; object-position: center;" loading=eager/>
+                                    <video autoplay muted loop playsinline style="width: 45%; aspect-ratio: 1; object-fit: cover; object-position: center;"><source src="gifs/slam2.mp4" type="video/mp4"></video>
+                                    <video autoplay muted loop playsinline style="width: 45%; aspect-ratio: 1; object-fit: cover; object-position: center;"><source src="gifs/slam3.mp4" type="video/mp4"></video>
                                 </span>
 							<h3>Background</h3>
 							<p>SLAM (Simultaneous Localization and Mapping) is a fundamental problem in robotics where an agent must simultaneously estimate its own position while mapping an unknown environment using sensor observations. This creates an interdependent estimation challenge where accurate localization requires a reliable map, while accurate mapping requires precise knowledge of the agent's position. In this project, I implemented a GraphSLAM system for autonomous drone navigation in an environment containing trees of unknown locations and sizes. In the above visualizations, the actual trajectory is plotted in red and the estimated trajectory in blue.</p>
