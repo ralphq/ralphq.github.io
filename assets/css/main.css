@@ -136,7 +136,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #1b1b1b;
+		background: #1b1b1b url("../../pics/earth_view.jpg") center/cover fixed;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -2661,6 +2661,28 @@ input, select, textarea {
 				overflow: hidden;
 			}
 
+			.tiles article > .image.oval {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.tiles article > .image.oval:before {
+				background-color: white;
+				border-radius: 50%;
+				opacity: 1;
+				top: 20%;
+				height: 60%;
+			}
+
+			.tiles article > .image.oval img {
+				width: auto;
+				max-width: 80%;
+				max-height: 55%;
+				position: relative;
+				z-index: 1;
+			}
+
 				.tiles article > .image img, .tiles article > .image video {
 					display: block;
 					width: 100%;
@@ -2684,9 +2706,8 @@ input, select, textarea {
 					left: 0;
 					width: 100%;
 					height: 100%;
-					opacity: 1.0;
 					z-index: 1;
-					opacity: 0.8;
+					opacity: 0.15;
 				}
 
 				.tiles article > .image:after {
@@ -2774,27 +2795,45 @@ input, select, textarea {
 					}
 					
 			.tiles article.style1 > .image:before {
-				background-color: #f2849e;
+				background-color: #f28060;
+			}
+			.tiles article.style1 > .image {
+				border: 2px solid #f28060;
 			}
 
 			.tiles article.style2 > .image:before {
 				background-color: #7ecaf6;
 			}
+			.tiles article.style2 > .image {
+				border: 2px solid #7ecaf6;
+			}
 
 			.tiles article.style3 > .image:before {
 				background-color: #7bd0c1;
+			}
+			.tiles article.style3 > .image {
+				border: 2px solid #7bd0c1;
 			}
 
 			.tiles article.style4 > .image:before {
 				background-color: #c75b9b;
 			}
+			.tiles article.style4 > .image {
+				border: 2px solid #c75b9b;
+			}
 
 			.tiles article.style5 > .image:before {
 				background-color: #ae85ca;
 			}
+			.tiles article.style5 > .image {
+				border: 2px solid #ae85ca;
+			}
 
 			.tiles article.style6 > .image:before {
 				background-color: #8499e7;
+			}
+			.tiles article.style6 > .image {
+				border: 2px solid #8499e7;
 			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
@@ -2803,11 +2842,6 @@ input, select, textarea {
 				-ms-transform: scale(1.1);
 				transform: scale(1.1);
 			}
-
-				body:not(.is-touch) .tiles article:hover > .image:before {
-					background-color: #333333;
-					opacity: 0.35;
-				}
 
 				body:not(.is-touch) .tiles article:hover > .image:after {
 					opacity: 0;
@@ -3222,6 +3256,10 @@ input, select, textarea {
 		padding: 0em 0 -2em 0 ;
 	}
 
+	#main .inner h1, #main .inner h2, #main .inner p {
+		text-shadow: 0 0 6px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.8);
+	}
+
 		@media screen and (max-width: 736px) {
 
 			#main {
@@ -3236,7 +3274,7 @@ input, select, textarea {
 
 	#footer {
 		padding: 5em 0 6em 0 ;
-		background-color: #1b1b1b;
+		background-color: transparent;
 	}
 
 		#footer > .inner {
